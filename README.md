@@ -8,8 +8,6 @@ Travel Planner Crew AI Agents to Get `Travel Plan`for a specific `City`, `Travel
 - `Agent Planner` : Plan the final Travel Plan
 - LangChain, YF Tools, OpenAI GPT-4o Inference
 
-![CrewAi App WorkFlow](workflow.png)
-
 ## TRAVEL PLANNER : LANGCHAIN & CREW AI
 - Travel Planner assitant to help plan your travel and generate a LLM powered financial reports.
 
