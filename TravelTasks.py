@@ -3,10 +3,8 @@ from crewai import Task
 from TravelAgents import TravelAgents
 #from agents import location_expert, guide_expert, planner_expert
 #DuckDuckGoSearchRunTool DuckDuckGoSearchResults DuckDuckGoSearchRun
-from langchain_groq import ChatGroq
-
-
-
+from langchain_openai import ChatOpenAI
+from crewai_tools import tool
 
 # TASKS
 class TravelTasks():
@@ -15,19 +13,15 @@ class TravelTasks():
     def location_task(self, agent, from_city, destination_city, date_from, date_to):
         return Task(
             description=f"""
-            In French : This task involves a comprehensive data collection process to provide the traveler with essential information about their destination. It includes researching and compiling details on various accommodations, ranging from budget-friendly hostels to luxury hotels, as well as estimating the cost of living in the area. The task also covers transportation options, visa requirements, and any travel advisories that may be relevant.
+            This task involves a comprehensive data collection process to provide the traveler with essential information about their destination. It includes researching and compiling details on various accommodations, ranging from budget-friendly hostels to luxury hotels, as well as estimating the cost of living in the area. The task also covers transportation options, visa requirements, and any travel advisories that may be relevant.
             consider also the weather conditions forcast on the travel dates. and all the events that may be relevant to the traveler during the trip period.
             
             Traveling from : {from_city}
             Destination city : {destination_city}
             Arrival Date : {date_from}
             Departure Date : {date_to}
-
-            Follow this rules : 
-            1. if the {destination_city} is in a French country : Respond in FRENCH.
             """,
             expected_output=f"""
-            if the {destination_city} is in a French country : Respond in FRENCH.
             In markdown format : A detailed markdown report that includes a curated list of recommended places to stay, a breakdown of daily living expenses, and practical travel tips to ensure a smooth journey.
             """,
             agent=agent,
@@ -38,15 +32,11 @@ class TravelTasks():
     def guide_task(self, agent, destination_city, interests, date_from, date_to):    
         return Task(
             description=f"""
-            if the {destination_city} is in a French country : Respond in FRENCH.
             Tailored to the traveler's personal {interests}, this task focuses on creating an engaging and informative guide to the city's attractions. It involves identifying cultural landmarks, historical spots, entertainment venues, dining experiences, and outdoor activities that align with the user's preferences such {interests}. The guide also highlights seasonal events and festivals that might be of interest during the traveler's visit.
             Destination city : {destination_city}
             interests : {interests}
             Arrival Date : {date_from}
             Departure Date : {date_to}
-
-            Follow this rules : 
-            1. if the {destination_city} is in a French country : Respond in FRENCH.
             """,
             expected_output=f"""
             An interactive markdown report that presents a personalized itinerary of activities and attractions, complete with descriptions, locations, and any necessary reservations or tickets.
@@ -66,12 +56,8 @@ class TravelTasks():
             interests : {interests}
             Arrival Date : {date_from}
             Departure Date : {date_to}
-
-            Follow this rules : 
-            1. if the {destination_city} is in a French country : Respond in FRENCH.
             """,
             expected_output="""
-            if the {destination_city} is in a French country : Respond in FRENCH.
             A rich markdown document with emojis on each title and subtitle, that :
             In markdown format : 
             # Welcome to {destination_city} :
@@ -87,6 +73,26 @@ class TravelTasks():
             output_file='travel_plan.md',
             )
 
+    # Task: Budget
+    def budget_task(self, agent, destination_city, budget, num_people, date_from, date_to, currency, exchange_rate):
+        return Task(
+            description=f"""
+            The user's total budget is {budget} {currency} for {num_people} people.
+            1 USD = {exchange_rate} {currency}.
+            All calculations, suggestions, and outputs must be in {currency}.
+            Suggest accommodations, activities, and transportation options that fit within this budget for the period from {date_from} to {date_to} in {destination_city}.
+            Prioritize group discounts, free or low-cost attractions, and affordable dining options. Clearly indicate estimated costs for each recommendation.
+            """,
+            expected_output=f"""
+            A markdown report listing:
+            - Budget breakdown (accommodation, food, activities, transport)
+            - Daily itinerary with estimated costs
+            - Tips for saving money and group deals
+            - Total estimated cost vs. budget
+            """,
+            agent=agent,
+            output_file='budget_report.md',
+        )
 
     # tip section
     def __tip_section(self):

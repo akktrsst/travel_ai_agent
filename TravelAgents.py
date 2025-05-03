@@ -1,26 +1,30 @@
 import streamlit as st
+import os
 from crewai import Agent
-from langchain_groq import ChatGroq
+from langchain_openai import ChatOpenAI
 from TravelTools import SearchTool
 import re
-
-
+from dotenv import load_dotenv
+from crewai_tools import tool
+load_dotenv()
+api_key=os.environ.get('OPENAI_API_KEY')
+# print(api_key)
 # AGENTS
 class TravelAgents():
     
     # LLM Setting
-    llm = ChatGroq(model="llama3-70b-8192", temperature=0, api_key=st.secrets['GROQ_API'])
+    llm = ChatOpenAI(model="gpt-4o-mini", temperature=0, api_key=os.environ.get('OPENAI_API_KEY'))
     
     # Agent city expert
     def location_expert(self):
         return Agent(
             role="Travel Trip Expert",
-            goal="Adapt to the user destination vity language (French if ciy in French Country. Gather helpful information about to the city and city during travel.",
+            goal="Adapt to the user destination city language (Gather helpful information about to the city and city during travel.",
             backstory="""A seasoned traveler who has explored various destinations and knows the ins and outs of travel logistics.""",
             tools=[SearchTool.search_web_tool],
             verbose=True,
             max_iter=5,
-            llm=ChatGroq(model="llama3-70b-8192", temperature=0, api_key=st.secrets['GROQ_API']),
+            llm=ChatOpenAI(model="gpt-4o-mini", temperature=0, api_key=os.environ.get('OPENAI_API_KEY')),
             allow_delegation=False,
             # step_callback=streamlit_callback,
             )
@@ -34,7 +38,7 @@ class TravelAgents():
             tools=[SearchTool.search_web_tool],
             verbose=True,
             max_iter=5,
-            llm=ChatGroq(model="llama3-70b-8192", temperature=0.1, api_key=st.secrets['GROQ_API']),
+            llm=ChatOpenAI(model="gpt-4o-mini", temperature=0.1, api_key=os.environ.get('OPENAI_API_KEY')),
             allow_delegation=False,
             # step_callback=streamlit_callback,
             )
@@ -51,12 +55,25 @@ class TravelAgents():
             tools=[SearchTool.search_web_tool],
             verbose=True,
             max_iter=5,
-            llm=ChatGroq(model="llama3-70b-8192", temperature=0, api_key=st.secrets['GROQ_API']),
+            llm=ChatOpenAI(model="gpt-4o-mini", temperature=0, api_key=os.environ.get('OPENAI_API_KEY')),
             allow_delegation=False,
             # step_callback=streamlit_callback,
             )
 
-
+    # Agent for budget-friendly planning
+    def budget_expert(self):
+        return Agent(
+            role="Budget Travel Expert",
+            goal="Optimize the travel plan for cost-effectiveness, best deals, and group savings based on the user's budget and number of people.",
+            backstory="""
+            A savvy traveler and deal hunter who specializes in finding the best value for money, discounts, and group offers for travel, accommodation, and activities.
+            """,
+            tools=[SearchTool.search_web_tool],
+            verbose=True,
+            max_iter=5,
+            llm=ChatOpenAI(model="gpt-4o-mini", temperature=0, api_key=os.environ.get('OPENAI_API_KEY')),
+            allow_delegation=False,
+        )
 
 class StreamToExpander:
     # Print agent process to Streamlit app container 

@@ -6,7 +6,7 @@ Travel Planner Crew AI Agents to Get `Travel Plan`for a specific `City`, `Travel
 - `Agent Travel` : Get the informations for travel and accomodations
 - `Agent Guide` : Get the informations for the destination, focus on user interests
 - `Agent Planner` : Plan the final Travel Plan
-- LangChain, YF Tools, Groq Inference
+- LangChain, YF Tools, OpenAI GPT-4o Inference
 
 ![CrewAi App WorkFlow](workflow.png)
 
@@ -23,5 +23,5 @@ Travel Planner Crew AI Agents to Get `Travel Plan`for a specific `City`, `Travel
 
 ## ✈️ Run the App
 - Fork or Clone the Repo
-- Get and Put your `GROQ_API` in `.streamlit/secrets.toml`
+- Get and Put your `OPENAI_API_KEY` in `.streamlit/secrets.toml`
 - Run : `streamlit run TravelCrewApp.py`

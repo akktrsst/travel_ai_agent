@@ -1,6 +1,9 @@
 streamlit
-crewai[tools]
-pysqlite3-binary
-langchain_community
+crewai==0.22.5
+crewai-tools==0.0.10
+langchain==0.1.16
+langchain-core==0.1.42
+langchain-community==0.0.32
+langchain-openai==0.0.5
 duckduckgo-search
-langchain-groq
+embedchain[github,youtube]>=0.1.85,<0.2.0
