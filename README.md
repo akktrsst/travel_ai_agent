@@ -21,5 +21,5 @@ Travel Planner Crew AI Agents to Get `Travel Plan`for a specific `City`, `Travel
 
 ## ✈️ Run the App
 - Fork or Clone the Repo
-- Get and Put your `OPENAI_API_KEY` in `.streamlit/secrets.toml`
+- Get and Put your `OPENAI_API_KEY` in .env file
 - Run : `streamlit run TravelCrewApp.py`
