@@ -201,7 +201,13 @@ if from_city and destination_city and date_from and date_to and interests:
                       state="complete", expanded=False)
 
       st.subheader("🗺️ Here is your Trip Plan 🎫 🏝️", anchor=False, divider="rainbow")
-      
+      st.markdown(result["final_output"])
+  
+      st.divider()
+      # expander for each 'exported_output'
+      for i, task in enumerate(result['tasks_outputs']):
+          with st.expander(f"Agent Report {i+1} :", expanded=False):
+              st.markdown(task)
       st.markdown(result)
           
 

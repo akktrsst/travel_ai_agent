@@ -49,6 +49,7 @@ def get_exchange_rate(currency):
 FROM, TO, INTERESTS, DATES, BUDGET, CURRENCY, PEOPLE = range(7)
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    context.user_data.clear()  # Clear previous data to restart
     await update.message.reply_text("Welcome to the Travel Planner Bot!\nWhere are you traveling from?")
     return FROM
 
@@ -169,6 +170,7 @@ if __name__ == "__main__":
             PEOPLE: [MessageHandler(filters.TEXT & ~filters.COMMAND, people)],
         },
         fallbacks=[CommandHandler("cancel", cancel)],
+        allow_reentry=True,  # Allow /start to restart the conversation at any time
     )
     app.add_handler(conv_handler)
     print("Bot is running. Press Ctrl+C to stop.")
