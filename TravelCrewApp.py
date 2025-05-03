@@ -126,12 +126,6 @@ class TravelCrew:
   
       return result
 
-
-##
-##
-##
-##
-
 st.header("✈️ 🎫 Travel Planner :orange[A]gent 🏝️ 🗺️", divider="orange")
 
 # sidebar
@@ -191,6 +185,7 @@ travel_period = (date_to - date_from).days
 # out container
 #LOGIC to CORRECT HERE
 # out container
+
 if from_city and destination_city and date_from and date_to and interests:
   st.caption("👌 Let's recap you Travel Plan :")
   st.write(f":sparkles: Your 🎫 :blue[{travel_period}-Days] Voyage from 📍 :blue[{from_city}] is starting the ✈️ {date_from} to 🧳 {date_to}. 🗺️ Your are heading to 🏝️ :orange[{destination_city}], to Enjoy 🍹 :orange[{interests}] 📸. Budget: :green[{budget} {currency}] for :blue[{num_people}] people.")
@@ -206,46 +201,9 @@ if from_city and destination_city and date_from and date_to and interests:
                       state="complete", expanded=False)
 
       st.subheader("🗺️ Here is your Trip Plan 🎫 🏝️", anchor=False, divider="rainbow")
-      if isinstance(result, dict):
-          if "final_output" in result:
-              st.markdown(result["final_output"])
-              # Example: Enhanced flow diagram with colors and better labels
-              itinerary = result["final_output"]
-              # Example: Match "Day X: ..." and activities under each day
-              day_blocks = re.findall(r"(Day \d+:.*?)(?=Day \d+:|$)", itinerary, re.DOTALL)
-              graphviz_code = 'digraph G {\nrankdir=LR;\nnode [shape=box, style=filled, fontname="Arial"];\n'
-              colors = ["#FFDDC1", "#C1FFD7", "#C1D4FF", "#FFD1C1", "#E1C1FF", "#FFFAC1"]
-              node_count = 0
-              prev_node = None
-              for day_idx, day_block in enumerate(day_blocks):
-                  day_label = re.search(r"(Day \d+:.*?)\\n", day_block)
-                  day_name = day_label.group(1) if day_label else f"Day {day_idx+1}"
-                  activities = re.findall(r"- (.*?)\\n", day_block)
-                  day_color = colors[day_idx % len(colors)]
-                  day_node = f'day{day_idx}'
-                  graphviz_code += f'{day_node} [label="{day_name}", fillcolor="{day_color}", shape=ellipse, fontsize=18, fontcolor="#333"];\n'
-                  if prev_node:
-                      graphviz_code += f'{prev_node} -> {day_node} [style=dashed, color="#888"];\n'
-                  prev_act_node = day_node
-                  for act_idx, act in enumerate(activities):
-                      act_node = f'day{day_idx}_act{act_idx}'
-                      # Add emoji or cost if present
-                      act_label = act.replace('"', '\\"')
-                      graphviz_code += f'{act_node} [label="{act_label}", fillcolor="#FFF", shape=box, fontsize=14];\n'
-                      graphviz_code += f'{prev_act_node} -> {act_node} [color="{day_color}"];\n'
-                      prev_act_node = act_node
-                  prev_node = prev_act_node
-              graphviz_code += "}"
-
-              st.graphviz_chart(graphviz_code)
-          if "usage_metrics" in result:
-              st.json(result["usage_metrics"])
-          if "tasks_outputs" in result:
-              for i, task in enumerate(result["tasks_outputs"]):
-                  with st.expander(f"Agent Report {i+1} :", expanded=False):
-                      st.markdown(task)
-      else:
-          st.markdown(result)
+      
+      st.markdown(result)
+          
 
   
 
