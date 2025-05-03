@@ -143,11 +143,14 @@ with st.sidebar:
         1. Pick your dream destination
         2. give us your interests
         3. Set your travel dates
-        4. Bon voyage !!
+        4. Set your budget
+        5. Set your currency
+        6. Set your number of people
+        7. Get your Travel Plan !!
     """
   )
   st.divider()
-  st.caption("Created by @0xZee")
+  st.caption("Created by @Abhishek")
 
 st.session_state.plan_pressed = False
 # User Inputs
@@ -206,12 +209,35 @@ if from_city and destination_city and date_from and date_to and interests:
       if isinstance(result, dict):
           if "final_output" in result:
               st.markdown(result["final_output"])
-              # Flow diagram visualization
-              steps = re.findall(r'\d+\. (.+)', result["final_output"])
-              if steps:
-                  graphviz_code = 'digraph G {\nrankdir=LR;\n' + '\n'.join([f'  step{i} [label=\"{step}\"]' for i, step in enumerate(steps)])
-                  graphviz_code += '\n' + '\n'.join([f'  step{i} -> step{i+1};' for i in range(len(steps)-1)]) + '\n}'
-                  st.graphviz_chart(graphviz_code)
+              # Example: Enhanced flow diagram with colors and better labels
+              itinerary = result["final_output"]
+              # Example: Match "Day X: ..." and activities under each day
+              day_blocks = re.findall(r"(Day \d+:.*?)(?=Day \d+:|$)", itinerary, re.DOTALL)
+              graphviz_code = 'digraph G {\nrankdir=LR;\nnode [shape=box, style=filled, fontname="Arial"];\n'
+              colors = ["#FFDDC1", "#C1FFD7", "#C1D4FF", "#FFD1C1", "#E1C1FF", "#FFFAC1"]
+              node_count = 0
+              prev_node = None
+              for day_idx, day_block in enumerate(day_blocks):
+                  day_label = re.search(r"(Day \d+:.*?)\\n", day_block)
+                  day_name = day_label.group(1) if day_label else f"Day {day_idx+1}"
+                  activities = re.findall(r"- (.*?)\\n", day_block)
+                  day_color = colors[day_idx % len(colors)]
+                  day_node = f'day{day_idx}'
+                  graphviz_code += f'{day_node} [label="{day_name}", fillcolor="{day_color}", shape=ellipse, fontsize=18, fontcolor="#333"];\n'
+                  if prev_node:
+                      graphviz_code += f'{prev_node} -> {day_node} [style=dashed, color="#888"];\n'
+                  prev_act_node = day_node
+                  for act_idx, act in enumerate(activities):
+                      act_node = f'day{day_idx}_act{act_idx}'
+                      # Add emoji or cost if present
+                      act_label = act.replace('"', '\\"')
+                      graphviz_code += f'{act_node} [label="{act_label}", fillcolor="#FFF", shape=box, fontsize=14];\n'
+                      graphviz_code += f'{prev_act_node} -> {act_node} [color="{day_color}"];\n'
+                      prev_act_node = act_node
+                  prev_node = prev_act_node
+              graphviz_code += "}"
+
+              st.graphviz_chart(graphviz_code)
           if "usage_metrics" in result:
               st.json(result["usage_metrics"])
           if "tasks_outputs" in result:
@@ -220,16 +246,6 @@ if from_city and destination_city and date_from and date_to and interests:
                       st.markdown(task)
       else:
           st.markdown(result)
-      st.divider()
-
-      # Parse your itinerary into a list of dicts with day, time, activity, cost
-      data = [
-          {"Day": 1, "Time": "Morning", "Activity": "Arrive in Goa", "Cost": 1000},
-          {"Day": 1, "Time": "Afternoon", "Activity": "Visit Calangute Beach", "Cost": 0},
-          # ... fill with parsed data ...
-      ]
-      df = pd.DataFrame(data)
-      st.table(df)
 
   
 

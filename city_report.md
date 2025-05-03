@@ -1,44 +1,47 @@
-```markdown
-# Rapport de Voyage à Goa, Inde (03 Mai 2025 - 10 Mai 2025)
+# Travel Guide to Goa, India (May 3 - May 7, 2025)
 
-## Hébergements Recommandés
+## Accommodations
 
-### Budget
-1. **White Balcao** - Un hébergement économique idéal pour les voyageurs à petit budget.
-2. **Simrose** (Plage d'Agonda) - Un charmant petit complexe en bord de mer.
-3. **O3 Beach Resort** (Plage de Palolem) - Un endroit populaire avec des tarifs abordables.
+### Budget-Friendly Options
+1. **Chalston Beach Resort** - Located near Calangute Beach, this resort offers a laid-back atmosphere and easy beach access.
+2. **Simrose Beach Resort** - Situated at Agonda Beach, it provides a cozy stay with beautiful views.
+3. **O3 Beach Resort** - Located at Palolem Beach, known for its vibrant atmosphere and affordable rates.
 
-### Luxe
-1. **Taj Exotica** (Plage de Benaulim) - Un complexe de luxe avec des suites inspirées de la Méditerranée.
-2. **The Westin Goa** - Luxe contemporain avec une architecture moderne et des influences goanaises.
-3. **Planet Hollywood Goa** (Plage d'Ultorda) - Un resort de luxe où de nombreuses célébrités séjournent.
+### Luxury Options
+1. **The Westin Goa** - A contemporary luxury resort with modern design and Goan influences.
+2. **Taj Exotica Resort & Spa** - A lavish beachfront property offering world-class amenities and services.
+3. **W Goa** - Known for its vibrant atmosphere and luxurious accommodations, perfect for a high-end experience.
 
-## Coût de la Vie
-- **Coût moyen de la vie** : Environ 30,000 à 50,000 INR par mois pour un style de vie confortable.
-- **Hébergement** : Entre 8,100 et 10,050 INR par mois.
-- **Repas** : Un thali de poisson coûte environ 150 INR (environ 1,20 $).
-- **Location de scooter** : Environ 50 $ par mois.
+## Cost of Living
+- **Accommodation**: ₹8,100 to ₹10,050 per month for a decent place.
+- **Daily Expenses**: Expect to spend around ₹1,000 to ₹2,000 per day, including meals, transportation, and entertainment.
+- **Transportation**: 
+  - Local bus fares: ₹10 to ₹50 per trip.
+  - Taxis: Base fare of ₹50-100, with additional charges based on distance.
 
-## Options de Transport
-- **Location de scooter** : Une option populaire pour explorer Goa à votre rythme.
-- **Taxis et services de covoiturage** : Disponibles, mais peuvent être plus coûteux.
-- **Transports en commun** : Moins développés, mais des bus locaux sont disponibles.
+## Transportation Options
+- **Public Transport**: Buses are the most economical way to travel around Goa.
+- **Taxis and Auto-rickshaws**: Readily available but can be more expensive than buses.
+- **Rentals**: Consider renting a scooter or bike for more flexibility in exploring.
 
-## Exigences de Visa
-- **Visa à l'arrivée** : Disponible pour de nombreux pays, vérifiez l'éligibilité.
-- **Visa touristique standard** : Coût d'environ 100 £, à obtenir via l'ambassade indienne.
+## Visa Requirements
+- **Tourist Visa**: Required for international travelers. E-visa options are available for approximately £46.
+- **Documents Needed**: A passport valid for at least 6 months and a printed visa.
 
-## Conseils de Voyage
-- **Sécurité** : Goa est généralement sûr, mais il est conseillé de voyager en petits groupes.
-- **Météo** : Attendez-vous à des températures chaudes, avec des averses possibles en mai.
-- **Événements** : Vérifiez les festivals locaux et les événements culturels qui pourraient avoir lieu pendant votre séjour.
+## Travel Advisories
+- Stay updated on local regulations and safety guidelines.
+- Be cautious of your belongings in crowded areas and tourist spots.
 
-## Conditions Météorologiques
-- **Prévisions** : En mai, attendez-vous à des températures autour de 30-35°C avec des risques d'averses.
+## Weather Forecast
+- **May Weather**: Expect warm temperatures ranging from 25°C to 35°C. It can be humid, so lightweight clothing is recommended.
 
-## Événements à Venir
-- **Festivals locaux** : Renseignez-vous sur les festivals culturels qui pourraient avoir lieu pendant votre séjour pour une expérience enrichissante.
+## Events During Your Stay
+- **Spirit of Goa Festival**: May 2-4, 2025. A celebration of Goan culture, cuisine, and local spirits, held at SAG Grounds in Colva. This festival features local drinks, food stalls, and cultural performances.
+- **Grape Escapade**: Also from May 2-4, this wine and food festival showcases the best of Goan culinary traditions.
 
-### Conclusion
-Goa est une destination magnifique avec une variété d'options d'hébergement, un coût de la vie raisonnable, et de nombreuses activités à explorer. Assurez-vous de planifier à l'avance pour profiter au maximum de votre séjour.
-```
+## Practical Travel Tips
+- **Language**: While English is widely spoken, learning a few basic phrases in Konkani or Hindi can enhance your experience.
+- **Local Cuisine**: Don’t miss trying local dishes like Goan fish curry, vindaloo, and bebinca (a traditional dessert).
+- **Safety**: Always keep an eye on your belongings and avoid isolated areas at night.
+
+Enjoy your trip to Goa, where beautiful beaches, vibrant culture, and delicious food await you!
